@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Akka 🎉</title>
   <style>
-   body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('mine.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
-  overflow: hidden;
-     }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("mine.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      overflow: hidden;
+    }
 
     h1 {
       font-size: 2.5rem;
@@ -31,13 +31,19 @@
       max-width: 600px;
       margin: 20px auto;
       line-height: 1.6;
-      z-index:1000;
     }
 
     .flower {
       width: 150px;
       margin: 20px auto;
       animation: pop 1.5s ease-out forwards, glow 2s infinite alternate;
+    }
+
+    .emoji {
+      position: absolute;
+      animation: float 6s infinite ease-in;
+      opacity: 0.6;
+      pointer-events: none;
     }
 
     @keyframes pop {
@@ -50,23 +56,9 @@
       100% { filter: drop-shadow(0 0 20px #ff4081); }
     }
 
-    .emoji {
-      position: absolute;
-      bottom: -40px;
-      animation: floatUp 10s linear infinite;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
     }
   </style>
 </head>
@@ -81,9 +73,6 @@
     💌 Let's cherish every moment again. 💖 Stay happy always 💙😊<br><br>
     I'm waiting like a kid for cake 🎂😅 — don’t make me wait too long!
   </div>
-
-  <img class="flower" src="https://cdn.pixabay.com/photo/2017/01/31/19/20/rose-2026701_1280.png" alt="Flower" />
-
   <script>
     const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
     for (let i = 0; i < 30; i++) {
@@ -92,12 +81,13 @@
       el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
       el.style.left = Math.random() * 100 + 'vw';
       el.style.fontSize = (20 + Math.random() * 30) + 'px';
-      el.style.animationDuration = (6 + Math.random() * 5) + 's';
-      el.style.animationDelay = (Math.random() * 3) + 's';
+      el.style.animationDuration = (6 + Math.random() * 4) + 's';
+      el.style.animationDelay = (Math.random() * 5) + 's';
       document.body.appendChild(el);
     }
   </script>
 
+  <!-- Optional: Background Music -->
   <audio autoplay loop>
     <source src="WhatsApp Audio 2025-06-11 at 7.32.30 PM.mpeg" type="audio/mpeg" />
     Your browser does not support the audio element.
