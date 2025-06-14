@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Akka 🎉</title>
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("mine.jpeg") no-repeat center center fixed;
-  background-size: contain;
-  background-color: #000; /* fallback background */
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("mine.jpeg") no-repeat center center fixed;
+      background-size: cover; /* changed from contain to cover */
+      background-color: #000;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
     }
 
     h1 {
@@ -37,27 +35,11 @@ body {
       line-height: 1.6;
     }
 
-    .flower {
-      width: 150px;
-      margin: 20px auto;
-      animation: pop 1.5s ease-out forwards, glow 2s infinite alternate;
-    }
-
     .emoji {
       position: absolute;
       animation: float 6s infinite ease-in;
       opacity: 0.6;
       pointer-events: none;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes glow {
-      0% { filter: drop-shadow(0 0 5px #ff4081); }
-      100% { filter: drop-shadow(0 0 20px #ff4081); }
     }
 
     @keyframes float {
@@ -77,9 +59,24 @@ body {
     💌 Let's cherish every moment again. 💖 Stay happy always 💙😊<br><br>
     I'm waiting like a kid for cake 🎂😅 — don’t make me wait too long!
   </div>
+
+  <!-- YouTube Audio Embed (hidden) -->
   <div style="display: none;">
-  <iframe width="0" height="0" src="https://youtu.be/8QF9hM1MQwc?si=lFiUs5Cm5OzRUI3N" frameborder="0" allow="autoplay"></iframe>
-</div>
+    <iframe 
+      width="0" 
+      height="0" 
+      src="https://www.youtube.com/embed/8QF9hM1MQwc?autoplay=1&loop=1&playlist=8QF9hM1MQwc" 
+      frameborder="0" 
+      allow="autoplay"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <!-- Optional: Local fallback background music -->
+  <audio autoplay loop>
+    <source src="WhatsApp Audio 2025-06-11 at 7.32.30 PM.mpeg" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
@@ -94,12 +91,6 @@ body {
       document.body.appendChild(el);
     }
   </script>
-
-  <!-- Optional: Background Music -->
-  <audio autoplay loop>
-    <source src="WhatsApp Audio 2025-06-11 at 7.32.30 PM.mpeg" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
 
 </body>
 </html>
