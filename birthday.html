@@ -37,6 +37,25 @@
       margin: 20px auto;
       animation: pop 1.5s ease-out forwards, glow 2s infinite alternate;
     }
+    .emoji {
+  position: absolute;
+  bottom: -40px; /* start below the screen */
+  animation: float 10s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
 
     @keyframes pop {
       0% { transform: scale(0); opacity: 0; }
@@ -75,18 +94,19 @@
   <img class="flower" src="https://cdn.pixabay.com/photo/2017/01/31/19/20/rose-2026701_1280.png" alt="Flower" />
 
   <script>
-    const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
-    for (let i = 0; i < 30; i++) {
-      let el = document.createElement('div');
-      el.className = 'emoji';
-      el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.animationDuration = (5 + Math.random() * 5) + 's';
-      el.style.fontSize = (20 + Math.random() * 20) + 'px';
-      el.style.top = '100vh';
-      document.body.appendChild(el);
-    }
-  </script>
+  const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
+  for (let i = 0; i < 30; i++) {
+    let el = document.createElement('div');
+    el.className = 'emoji';
+    el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (20 + Math.random() * 30) + 'px';
+    el.style.animationDuration = (6 + Math.random() * 4) + 's';
+    el.style.animationDelay = (Math.random() * 5) + 's';
+    document.body.appendChild(el);
+  }
+</script>
+
 
   <!-- Optional: Background Music -->
   <audio autoplay loop>
