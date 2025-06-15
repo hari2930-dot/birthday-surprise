@@ -6,59 +6,63 @@
   <title>Happy Birthday Akka 🎉</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
 
-    /* Carousel */
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+    }
+
     .carousel {
       position: fixed;
-      inset: 0;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 1;
     }
+
     .carousel img {
-      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: absolute;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
+
     .carousel img.active {
       opacity: 1;
     }
 
-    /* Centered Message */
     .center-message {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, 0.6);
-      color: #fff;
       padding: 20px;
       border-radius: 10px;
-      max-width: 90%;
-      width: 400px;
+      color: #fff;
       text-align: center;
-      z-index: 10;
+      width: 90%;
+      max-width: 400px;
+      z-index: 2;
     }
 
     .center-message h1 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: #ffccff;
       margin-bottom: 10px;
     }
 
-    .center-message p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    /* Floating Emojis */
     .emoji {
       position: absolute;
       animation: float 6s infinite ease-in;
-      opacity: 0.5;
+      opacity: 0.6;
       pointer-events: none;
+      z-index: 3;
     }
 
     @keyframes float {
@@ -69,33 +73,34 @@
 </head>
 <body>
 
-  <!-- Carousel Background -->
+  <!-- Background Image Carousel -->
   <div class="carousel" id="carousel">
-  <img src="DSC03015.JPG" class="active" />
-  <img src="DSC03027.JPG">
-  <img src="DSC03125.JPG">
-  <img src="mine.jpeg">
-  <img src="DSC05234.JPG">
-  <img src="IMG_6072.JPG">
+    <img src="DSC03015.JPG" class="active">
+    <img src="DSC03027.JPG">
+    <img src="DSC03125.JPG">
+    <img src="mine.jpeg">
+    <img src="DSC05234.JPG">
+    <img src="IMG_6072.JPG">
   </div>
 
-  <!-- Center Message -->
+  <!-- Message -->
   <div class="center-message">
-    <h1>🎉 Happy Birthday Akka 🎉</h1>
+    <h1>🌸 Happy Birthday Akka 🌸</h1>
     <p>
-      Wishing you all the happiness in the world! <br>
-      Thank you for always being there 💖<br><br>
-      Stay amazing. You deserve the best 🎂✨
+      🎉 Wishing you a day full of love, joy, and smiles 😊.<br><br>
+      You’re the best sister anyone could ask for 💖.<br>
+      Sorry if I hurt you — you matter a lot to me 💔.<br>
+      Stay happy and blessed always 💐💙
     </p>
   </div>
 
   <!-- Floating Emojis -->
   <script>
-    const emojis = ['💞', '🌸', '💐', '🫂', '🎈'];
-    for (let i = 0; i < 25; i++) {
+    const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
+    for (let i = 0; i < 30; i++) {
       let el = document.createElement('div');
       el.className = 'emoji';
-      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
       el.style.left = Math.random() * 100 + 'vw';
       el.style.fontSize = (20 + Math.random() * 30) + 'px';
       el.style.animationDuration = (6 + Math.random() * 4) + 's';
@@ -106,8 +111,9 @@
 
   <!-- Carousel Script -->
   <script>
-    const slides = document.querySelectorAll("#carousel img");
     let current = 0;
+    const slides = document.querySelectorAll(".carousel img");
+
     setInterval(() => {
       slides[current].classList.remove("active");
       current = (current + 1) % slides.length;
@@ -115,16 +121,21 @@
     }, 3000);
   </script>
 
-  <!-- Background YouTube Music -->
-  <iframe 
-    width="0" 
-    height="0" 
-    src="https://www.youtube.com/embed/8QF9hM1MQwc?autoplay=1&loop=1&playlist=8QF9hM1MQwc" 
-    frameborder="0" 
-    allow="autoplay" 
-    allowfullscreen
-    style="display: none;"
-  ></iframe>
+  <!-- Mobile-safe Audio -->
+  <audio id="bg-music" autoplay loop>
+    <source src="your-audio-file.mp3" type="audio/mp3">
+    Your browser does not support audio.
+  </audio>
+
+  <script>
+    // Resume audio on first interaction (required for mobile autoplay)
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("bg-music");
+      if (audio.paused) {
+        audio.play();
+      }
+    });
+  </script>
 
 </body>
 </html>
