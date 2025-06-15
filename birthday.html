@@ -57,6 +57,17 @@
       margin-bottom: 10px;
     }
 
+     .paused .emoji {
+  animation-play-state: paused !important;
+  }
+  
+  .paused .carousel img {
+    transition: none !important;
+  }
+  
+  .paused .carousel img.active {
+    opacity: 1 !important;
+  }
     .emoji {
       position: absolute;
       animation: float 6s infinite ease-in;
@@ -102,48 +113,51 @@ I’m waiting for your reply like a little kid waiting for cake 🎂💌
 
   </div>
 
-  <!-- Floating Emojis -->
-  <script>
-    const emojiOptions = [ '🫂', '🌟', '💕'];
-    for (let i = 0; i < 30; i++) {
-      let el = document.createElement('div');
-      el.className = 'emoji';
-      el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.fontSize = (20 + Math.random() * 30) + 'px';
-      el.style.animationDuration = (6 + Math.random() * 4) + 's';
-      el.style.animationDelay = (Math.random() * 5) + 's';
-      document.body.appendChild(el);
-    }
-  </script>
+ <!-- All-in-One Script -->
+<script>
+  // Floating Emojis
+  const emojiOptions = ['🫂', '🌟', '💕'];
+  for (let i = 0; i < 30; i++) {
+    let el = document.createElement('div');
+    el.className = 'emoji';
+    el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (20 + Math.random() * 30) + 'px';
+    el.style.animationDuration = (6 + Math.random() * 4) + 's';
+    el.style.animationDelay = (Math.random() * 5) + 's';
+    document.body.appendChild(el);
+  }
 
-  <!-- Carousel Script -->
-  <script>
-    let current = 0;
-    const slides = document.querySelectorAll(".carousel img");
+  // Carousel Control
+  let current = 0;
+  const slides = document.querySelectorAll(".carousel img");
+  let carouselPaused = false;
 
-    setInterval(() => {
+  setInterval(() => {
+    if (!carouselPaused) {
       slides[current].classList.remove("active");
       current = (current + 1) % slides.length;
       slides[current].classList.add("active");
-    }, 3000);
-  </script>
+    }
+  }, 3000);
+
+  // Tap to Pause/Resume Everything + Mobile Audio Play
+  let isPaused = false;
+  document.addEventListener("click", () => {
+    const audio = document.getElementById("bg-music");
+    if (audio.paused) audio.play();
+
+    isPaused = !isPaused;
+    document.body.classList.toggle('paused', isPaused);
+    carouselPaused = isPaused;
+  });
+</script>
+
 
   <!-- Mobile-safe Audio -->
   <audio id="bg-music" autoplay loop>
     <source src="https://github.com/hari2930-dot/birthday-surprise/blob/main/Brother%20and%20Sister%20Love%20WhatsApp%20Status%20Emotional%20Video.mp3" type="audio">
     Your browser does not support audio.
   </audio>
-
-  <script>
-    // Resume audio on first interaction (required for mobile autoplay)
-    document.addEventListener("click", () => {
-      const audio = document.getElementById("bg-music");
-      if (audio.paused) {
-        audio.play();
-      }
-    });
-  </script>
-
 </body>
 </html>
