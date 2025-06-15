@@ -6,14 +6,13 @@
   <title>Happy Birthday Akka 🎉</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
       height: 100%;
-      width: 100%;
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
     }
@@ -38,40 +37,66 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: rgba(0, 0, 0, 0.6);
-      padding: 30px 40px;
-      border-radius: 15px;
-      text-align: center;
+      padding: 25px;
+      border-radius: 12px;
       color: #fff;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      max-width: 600px;
+      text-align: center;
+      max-width: 90%;
+      width: 500px;
       z-index: 10;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
 
-    h1 {
+    .center-message h1 {
       font-size: 2rem;
       color: #ffccff;
-      text-shadow: 2px 2px #c2185b;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
+    .center-message p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Floating emoji styles */
     .emoji {
       position: absolute;
       animation: float 6s infinite ease-in;
-      opacity: 0.5;
+      opacity: 0.6;
       pointer-events: none;
-      z-index: 5;
     }
 
     @keyframes float {
       0% { transform: translateY(100vh); }
       100% { transform: translateY(-10vh); }
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+
+      .gallery-grid img:nth-child(n+5) {
+        display: none; /* Hide 5 & 6 on mobile */
+      }
+
+      .center-message {
+        width: 90%;
+        font-size: 0.95rem;
+        padding: 20px;
+      }
+
+      .center-message h1 {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Image Grid -->
+ 
   <div class="gallery-grid">
     <img src="DSC03015.JPG" alt="">
     <img src="DSC03027.JPG" alt="">
@@ -81,15 +106,33 @@
     <img src="IMG_6072.JPG" alt="">
   </div>
 
+  <!-- Birthday Message -->
   <div class="center-message">
     <h1>🌸 Happy Birthday Akka 🌸</h1>
-    🎉 Wishing you a day full of love, joy, and smiles 😊.<br><br>
-    You’re the best sister anyone could ask for 💖.<br>
-    Sorry if I hurt you — you matter a lot to me 💔.<br>
-    Stay happy and blessed always 💐💙
+    <p>
+      🎉 Wishing you a day full of love, joy, and smiles 😊.<br><br>
+      You’re the best sister anyone could ask for 💖.<br>
+      Sorry if I hurt you — you matter a lot to me 💔.<br>
+      Stay happy and blessed always 💐💙
+    </p>
   </div>
 
-  <!-- Hidden YouTube Audio -->
+  <!-- Floating Emojis -->
+  <script>
+    const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
+    for (let i = 0; i < 30; i++) {
+      let el = document.createElement('div');
+      el.className = 'emoji';
+      el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (20 + Math.random() * 30) + 'px';
+      el.style.animationDuration = (6 + Math.random() * 4) + 's';
+      el.style.animationDelay = (Math.random() * 5) + 's';
+      document.body.appendChild(el);
+    }
+  </script>
+
+  <!-- YouTube Audio Embed (Hidden) -->
   <div style="display: none;">
     <iframe 
       width="0" 
@@ -101,19 +144,11 @@
     ></iframe>
   </div>
 
-  <script>
-    const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
-    for (let i = 0; i < 25; i++) {
-      let el = document.createElement('div');
-      el.className = 'emoji';
-      el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.fontSize = (20 + Math.random() * 30) + 'px';
-      el.style.animationDuration = (6 + Math.random() * 4) + 's';
-      el.style.animationDelay = (Math.random() * 5) + 's';
-      document.body.appendChild(el);
-    }
-  </script>
+  <!-- Optional fallback local audio -->
+  <audio autoplay loop>
+    <source src="your-audio-file.mpeg" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
 </body>
 </html>
