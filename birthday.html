@@ -5,41 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Akka 🎉</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: url("mine.jpeg") no-repeat center center fixed;
-      background-size: cover; /* changed from contain to cover */
-      background-color: #000;
-      height: 100vh;
-      width: 100vw;
       overflow: hidden;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 50px;
-      color: #fff;
-      text-shadow: 2px 2px #c2185b;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      height: 100vh;
+      width: 100vw;
     }
 
-    .message-box {
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .center-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 15px;
+      text-align: center;
       color: #fff;
-      font-size: 18px;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 20px auto;
+      font-size: 1.2rem;
       line-height: 1.6;
+      max-width: 600px;
+      z-index: 10;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #ffccff;
+      text-shadow: 2px 2px #c2185b;
+      margin-bottom: 15px;
     }
 
     .emoji {
       position: absolute;
       animation: float 6s infinite ease-in;
-      opacity: 0.6;
+      opacity: 0.5;
       pointer-events: none;
+      z-index: 5;
     }
 
     @keyframes float {
@@ -50,36 +72,38 @@
 </head>
 <body>
 
-  <h1>🌸 Happy Birthday Akka 🌸</h1>
-
-  <div class="message-box">
-    🎉 Happy Birthday, Akka! 💐<br><br>
-    Wishing you a beautiful day filled with love, smiles 😊, and happiness 🌟. I’ve missed you a lot 💔. I never meant to hurt you.<br><br>
-    You’re my sister 👭, and our bond means a lot to me. Please don’t compare me with others 🙏. If you're ever angry, beat me if you want 😂 — but don’t say hurtful words 🫣.<br><br>
-    💌 Let's cherish every moment again. 💖 Stay happy always 💙😊<br><br>
-    I'm waiting like a kid for cake 🎂😅 — don’t make me wait too long!
+  <div class="gallery-grid">
+    <img src="DSC03015.JPG" alt="">
+    <img src="DSC03027.JPG" alt="">
+    <img src="DSC03125.JPG" alt="">
+    <img src="mine.jpeg" alt="">
+    <img src="DSC05234.JPG" alt="">
+    <img src="IMG_6072.JPG" alt="">
   </div>
 
- <!-- YouTube Audio Embed (hidden) -->
-<div style="display: none;">
-  <iframe 
-    width="0" 
-    height="0" 
-    src="https://www.youtube.com/embed/8QF9hM1MQwc?autoplay=1&loop=1&playlist=8QF9hM1MQwc" 
-    frameborder="0" 
-    allow="autoplay"
-    allowfullscreen
-  ></iframe>
-</div>
-  <!-- Optional: Local fallback background music -->
-  <audio autoplay loop>
-    <source src="WhatsApp Audio 2025-06-11 at 7.32.30 PM.mpeg" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+  <div class="center-message">
+    <h1>🌸 Happy Birthday Akka 🌸</h1>
+    🎉 Wishing you a day full of love, joy, and smiles 😊.<br><br>
+    You’re the best sister anyone could ask for 💖.<br>
+    Sorry if I hurt you — you matter a lot to me 💔.<br>
+    Stay happy and blessed always 💐💙
+  </div>
+
+  <!-- Hidden YouTube Audio -->
+  <div style="display: none;">
+    <iframe 
+      width="0" 
+      height="0" 
+      src="https://www.youtube.com/embed/8QF9hM1MQwc?autoplay=1&loop=1&playlist=8QF9hM1MQwc" 
+      frameborder="0" 
+      allow="autoplay"
+      allowfullscreen
+    ></iframe>
+  </div>
 
   <script>
     const emojiOptions = ['💞', '🫂', '🌟', '💐', '🌸'];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 25; i++) {
       let el = document.createElement('div');
       el.className = 'emoji';
       el.textContent = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
