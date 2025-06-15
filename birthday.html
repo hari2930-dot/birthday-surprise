@@ -8,39 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html { height: 100%; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
 
-    /* Password modal */
-    #passwordModal {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #fdd9ec, #c8d9f7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    .modal-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-    .modal-box input {
-      padding: 10px;
-      width: 100%;
-      margin: 15px 0;
-      font-size: 1rem;
-    }
-    .modal-box button {
-      padding: 10px 25px;
-      background: #ff4081;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
     /* Carousel */
     .carousel {
       position: fixed;
@@ -59,7 +26,7 @@
       opacity: 1;
     }
 
-    /* Centered birthday message */
+    /* Centered Message */
     .center-message {
       position: absolute;
       top: 50%;
@@ -102,33 +69,21 @@
 </head>
 <body>
 
-  <!-- Password Modal -->
-  <div id="passwordModal">
-    <div class="modal-box">
-      <h2>Enter Password</h2>
-      <input type="password" id="passwordInput" placeholder="Password...">
-      <button onclick="checkPassword()">Unlock</button>
-    </div>
+  <!-- Carousel Background -->
+  <div class="carousel" id="carousel">
+    <img src="img1.jpg" class="active" />
+    <img src="img2.jpg" />
+    <img src="img3.jpg" />
+    <img src="img4.jpg" />
   </div>
 
-<!-- 🖼️ Image Grid -->
- <div class="carousel" id="carousel">
-    <img src="img1.jpg" class="active" />
-  <img src="DSC03027.JPG" alt="">
-  <img src="DSC03125.JPG" alt="">
-  <img src="mine.jpeg" alt="">
-  <img src="DSC05234.JPG" alt="">
-  <img src="IMG_6072.JPG" alt="">
-</div>
-
-  <!-- Centered Birthday Message -->
-  <div class="center-message" id="birthdayMsg" style="display:none;">
-    <h1> Happy Birthday Akka </h1>
+  <!-- Center Message -->
+  <div class="center-message">
+    <h1>🎉 Happy Birthday Akka 🎉</h1>
     <p>
-      🎉 Wishing you a day full of love, joy, and smiles 😊.<br><br>
-      You’re the best sister anyone could ask for 💖.<br>
-      Sorry if I hurt you — you matter a lot to me 💔.<br>
-      Stay happy and blessed always 💐💙
+      Wishing you all the happiness in the world! <br>
+      Thank you for always being there 💖<br><br>
+      Stay amazing. You deserve the best 🎂✨
     </p>
   </div>
 
@@ -147,35 +102,18 @@
     }
   </script>
 
-  <!-- JS: Password & Carousel -->
+  <!-- Carousel Script -->
   <script>
-    const correctPassword = "love"; // change this password
-    const modal = document.getElementById("passwordModal");
-    const birthdayMsg = document.getElementById("birthdayMsg");
-
-    function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      if (input === correctPassword) {
-        modal.style.display = "none";
-        birthdayMsg.style.display = "block";
-        startCarousel();
-      } else {
-        alert("Wrong password. Try again!");
-      }
-    }
-
-    function startCarousel() {
-      const slides = document.querySelectorAll("#carousel img");
-      let current = 0;
-      setInterval(() => {
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
-      }, 3000);
-    }
+    const slides = document.querySelectorAll("#carousel img");
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 3000);
   </script>
 
-  <!-- Hidden YouTube Music -->
+  <!-- Background YouTube Music -->
   <iframe 
     width="0" 
     height="0" 
